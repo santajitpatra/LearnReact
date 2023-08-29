@@ -1,5 +1,6 @@
 import { Form, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import { updateContact } from "../contacts";
+import "../styles/router.css";
 
 export async function action({ request, params }) {
   const formData = await request.formData();

@@ -11,8 +11,8 @@ import Contact, {
 import EditContact, { action as editAction } from "./routes/edit";
 import { action as destroyAction } from "./routes/destroy.jsx";
 import Index from "./routes";
-import Test from "./Pages/test";
-import News from "./Pages/News";
+import Test from "./pages/test";
+import News from "./pages/news";
 
 
 const router = createBrowserRouter([

@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { createContact, getContacts } from "../contacts";
 import { useEffect } from "react";
+import "../styles/router.css";
 
 export async function loader({ request }) {
   const url = new URL(request.url);

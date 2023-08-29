@@ -1,9 +1,9 @@
-
-import Stories from '../components/Stories'
+import Stories from "../components/Stories";
+import  "../styles/news.css";
 
 const News = () => {
   return (
-    <div>
+    <div className="news">
       <Stories/>
     </div>
   )
