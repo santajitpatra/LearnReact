@@ -1,21 +1,59 @@
-import Map from "./components/Map"
-import Counter from "./components/Counter"
-import { CounterContext } from "./context/Counter"
-import { useContext } from "react"
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import Root, {
+  loader as rootLoader,
+  action as rootAction,
+} from "./routes/root";
+import ErrorPage from "./error-page.jsx";
+import Contact, {
+  loader as contactLoader,
+  action as contactAction,
+} from "./routes/contact.jsx";
+import EditContact, { action as editAction } from "./routes/edit";
+import { action as destroyAction } from "./routes/destroy.jsx";
+import Index from "./routes";
+import Test from "./Pages/test";
 
-const App = () => {
-  const counterState = useContext(CounterContext);
-  console.log("Context: " + counterState)
-  return (
-    <div>
-      <Map />
-      <h2>Count is {counterState.count}</h2>
-      <Counter/>
-      <Counter/>
-      <Counter/>
-      <Counter/>
-    </div>
-  )
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    loader: rootLoader,
+    action: rootAction,
+
+    children: [
+      {
+        errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Index /> },
+          {
+            path: "contacts/:contactId",
+            element: <Contact />,
+            loader: contactLoader,
+            action: contactAction,
+          },
+          {
+            path: "contacts/:contactId/edit",
+            element: <EditContact />,
+            loader: contactLoader,
+            action: editAction,
+          },
+          {
+            path: "contacts/:contactId/destroy",
+            action: destroyAction,
+            errorElement: <div>Oops! There was an error.</div>,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: "/test",
+    element: <Test />,
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App
