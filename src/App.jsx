@@ -1,4 +1,4 @@
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import { RouterProvider, createBrowserRouter,  } from "react-router-dom";
 import Root, {
   loader as rootLoader,
   action as rootAction,
@@ -12,6 +12,7 @@ import EditContact, { action as editAction } from "./routes/edit";
 import { action as destroyAction } from "./routes/destroy.jsx";
 import Index from "./routes";
 import Test from "./Pages/test";
+import News from "./Pages/News";
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
   {
     path: "/test",
     element: <Test />,
+  },
+  {
+    path: "/news",
+    element: <News />,
   },
 ]);
 

@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import { createContext, useState } from "react";
+import PropTypes from "prop-types";
+
 
 export const CounterContext = createContext(null)
 
@@ -13,3 +14,7 @@ export const CounterProvider = (props) => {
       </CounterContext.Provider>
     );
   }
+
+  CounterProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+  };
