@@ -19,6 +19,11 @@ function reducer(state, action) {
           (Element) => Element.objectID !== action.payload
         ),
       };
+    case "SEARCH_QUERY":
+      return {
+        ...state,
+        query: action.payload,
+      };
   }
   return state;
 }

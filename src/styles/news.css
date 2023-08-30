@@ -74,14 +74,14 @@ span {
   color: red;
 }
 
-/* form {
+#search_form {
   display: grid;
   place-items: center;
 }
 
 
 
-input {
+#search_input {
   padding: 1rem;
   min-width: 40rem;
   font-size: 2rem;
@@ -89,7 +89,7 @@ input {
   border: none;
   border-bottom: 0.2rem solid #15133c;
   outline: none;
-} */
+}
 
 .pagination-btn {
   width: 100%;
@@ -112,9 +112,9 @@ input {
 /* responsive layout  */
 
 @media (max-width: 998px) {
-  html {
+  /* html {
     font-size: 56%;
-  }
+  } */
 
   .card {
     min-width: 45rem;
@@ -123,9 +123,9 @@ input {
 }
 
 @media (max-width: 768px) {
-  html {
+  /* html {
     font-size: 51%;
-  }
+  } */
 
   .card {
     min-width: 35rem;
