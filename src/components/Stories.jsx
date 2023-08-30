@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../context/contextNews";
 
 const Stories = () => {
-  const { hits, isLoading } = useGlobalContext();
+  const { hits, isLoading, removePost } = useGlobalContext();
 
   if (isLoading) {
     return (
@@ -18,7 +18,7 @@ const Stories = () => {
           const { title, author, objectID, url, num_comments } = curPost;
           return (
             <div className="card" key={objectID}>
-              <h2 >{title}</h2>
+              <h2>{title}</h2>
               <p>
                 By <span> {author}</span> | <span> {num_comments} </span>
                 comments
@@ -27,7 +27,7 @@ const Stories = () => {
                 <a href={url} target="_blank" rel="noopener noreferrer">
                   Read More
                 </a>
-                <a href="#" >
+                <a href="#" onClick={() => removePost(objectID)}>
                   Remove
                 </a>
               </div>

@@ -35,12 +35,18 @@ dispatch({type: "SET_LOADING"})
     }
   };
 
+  const removePost = (post_ID) => {
+    dispatch({ type: "REMOVE_POST", payload: post_ID });
+  }
+
   useEffect(() => {
     fecthApiData(`${API}query=${state.query}&page=${state.page}`);
   }, []);
 
   return (
-    <AppContext.Provider value={{...state}}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, removePost }}>
+      {children}
+    </AppContext.Provider>
   );
 }
 AppProvider.propTypes = {
