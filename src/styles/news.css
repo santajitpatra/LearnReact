@@ -91,14 +91,14 @@ span {
   outline: none;
 }
 
-.pagination-btn {
+.pagination_btn {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* button {
+.news_btn {
   padding: 0.8rem 2.2rem;
   border: none;
   font-size: 1.6rem;
@@ -107,7 +107,7 @@ span {
   margin: 3rem;
   cursor: pointer;
   display: inline-block;
-} */
+}
 
 /* responsive layout  */
 

@@ -24,8 +24,33 @@ function reducer(state, action) {
         ...state,
         query: action.payload,
       };
+    case "NEXT_PAGE": {
+      let pageNumberInc = state.page + 1;
+
+      if (pageNumberInc >= state.nbPages) {
+        pageNumberInc = 0;
+      }
+
+      return {
+        ...state,
+        page: pageNumberInc,
+      };
+    }
+    case "PREV_PAGE": {
+      let pageNumber = state.page - 1;
+
+      if (pageNumber <= 0) {
+        pageNumber = 0;
+      }
+      return {
+        ...state,
+        page: pageNumber,
+      };
+    }
+
+    default:
+      return state;
   }
-  return state;
 }
 
 export default reducer;

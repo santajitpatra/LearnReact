@@ -42,17 +42,31 @@ function AppProvider({ children }) {
 
   //search for all
   const searchPost = (searchQuery) => {
-    dispatch({ type: "SEARCH_QUERY",payload: searchQuery, });
+    dispatch({ type: "SEARCH_QUERY", payload: searchQuery });
   };
 
+  //pagination
+  const getPrevPage = () => {
+    dispatch({
+      type: "PREV_PAGE",
+    });
+  };
 
-  //api call to 
+  const getNextPage = () => {
+    dispatch({
+      type: "NEXT_PAGE",
+    });
+  };
+
+  //api call to
   useEffect(() => {
     fecthApiData(`${API}query=${state.query}&page=${state.page}`);
   }, [state.page, state.query]);
 
   return (
-    <AppContext.Provider value={{ ...state, removePost, searchPost }}>
+    <AppContext.Provider
+      value={{ ...state, removePost, searchPost, getPrevPage, getNextPage }}
+    >
       {children}
     </AppContext.Provider>
   );
